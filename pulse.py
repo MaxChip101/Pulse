@@ -51,7 +51,7 @@ cmds = (
     "\n"
     "time: (seconds)                                       | Sets a timer for X amount of seconds" # - in dev when var gets fully made
     "\n"
-    "pulse                                                 | Pulse by MaxChip 2022 - 2022"
+    "pulse                                                 | Pulse by MaxChip & Talleeenos69 2022 - 2022"
     "\n"
     "X + Y                                                 | Adds 2 numbers together" # -
     "\n"
@@ -198,7 +198,7 @@ while True:
 
     #pulse
     elif enit == "pulse":
-        print("Pulse by MaxChip and Tallenos69 2022 - 2022")
+        print("Pulse by MaxChip and Talleeenos69 2022 - 2022")
 
     #timer
     elif enit[0:6] == "time: ":
