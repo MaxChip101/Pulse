@@ -99,7 +99,7 @@ def Logo():
                     ..........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                     ...........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                      ...........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-                      ...........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+                      ...........,,,,,,,,,,,,,,,,,,,,,,,,,,,,MaxChip101 Talleeenos69
 
     """)
 # Tips
@@ -157,7 +157,7 @@ while True:
     elif enit[0:6] == "file: ":
         a = enit[6:]
         c = input(" N> ")
-
+        #Remove files
         if c == "e":
             print("ARE YOU SURE YOU WANT TO ERASE THIS FILE.\n Y / N")
             o = input(" > ")
@@ -165,6 +165,7 @@ while True:
                 os.remove(a)
             else:
                 pass
+        #Write to Files
         elif c == "w":            
             f = open(a, "w")
             b = input(" > ")
@@ -175,7 +176,7 @@ while True:
             print(d)
         elif c == "c":
             f.close()
-        
+    #end of file editor
 
     #terminate
     elif enit == "pulse.terminate":
