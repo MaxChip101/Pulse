@@ -6,23 +6,6 @@
 import os
 import time
 
-#Data
-
-#Functions
-
-#variable saving testing
-global a1
-global b1
-global c1
-global d1
-global e1
-
-#variable saving | PROG : saves a variable name and variable value together and returns it
-def savevar(n, v):
-    a = str(v)
-    b = n + " ," + v
-    return b
-
 #experiments | experiments that are being tested
 def exp1():
     pass
@@ -41,33 +24,33 @@ def exp5():
 
 #commands | list of commands
 cmds = (
-    "print: txt                                            | Prints a text to the Terminal"
+    "print: txt                                               | Prints a text to the Terminal"
     "\n"
-    "printvar: (var)                                       | Prints a variable to the Terminal"
+    "pulse.logo                                               | Prints the logo for Pulse in the Terminal"
     "\n"
-    "pulse.logo                                            | Prints the logo for Pulse in the Terminal"
+    "pulse.terminate                                          | Kills the program"
     "\n"
-    "pulse.terminate                                       | Kills the program"
+    "pause: (seconds)                                         | Sets a timer for X amount of seconds"
     "\n"
-    "pause: (seconds)                                      | Sets a timer for X amount of seconds" # - in dev when var gets fully made
+    "time                                                     | Prints the time into the Terminal"
     "\n"
-    "time                                                  | Prints the time into the Terminal"
+    "pulse                                                    | Pulse by MaxChip & Talleeenos69 2022 - 2022"
     "\n"
-    "pulse                                                 | Pulse by MaxChip & Talleeenos69 2022 - 2022"
+    "X + Y                                                    | Adds 2 numbers together"
     "\n"
-    "X + Y                                                 | Adds 2 numbers together" # -
+    "X - Y                                                    | Subtracts 2 numbers from each other"
     "\n"
-    "X - Y                                                 | Subtracts 2 numbers from each other" # -
+    "X * Y                                                    | Multiplies 2 numbers together"
     "\n"
-    "X * Y                                                 | Multiplies 2 numbers together" # -
+    "X / Y                                                    | Divides 2 numbers from each other"
     "\n"
-    "X / Y                                                 | Divides 2 numbers from each other" # -
+    "X % Y                                                    | Mods 2 numbers from each other"
     "\n"
-    "N = V                                                 | Creates a variable with a value in the pulse instance" #dev
+    "X ^ Y                                                    | Puts a number to the exponent to another number"
     "\n"
     "file: (file.filetype) // N> (e, w, r, c) // (w) > (text) | Creates / writes, deletes, reads a file"
     "\n"
-    "pulse.experiments                                     | Shows a list of experiments that are available"
+    "pulse.experiments                                        | Shows a list of experiments that are available"
 )
 #experiments | list of experiments 
 experiments = (
@@ -80,8 +63,6 @@ experiments = (
     "pulse.experiment4 | Experiment4 has no value"
     "\n"
     "pulse.experiment5 | Experiment5 has no value"
-    "\n"
-    "More experiments coming soon!"
 )
 
 #logo
@@ -133,9 +114,9 @@ while True:
 
     #Commands
 
+    #null
     if enit == "null":
         pass
-
     #logo
     elif enit == "pulse.logo":
         Logo()
@@ -147,11 +128,6 @@ while True:
     #time
     elif enit == "time":
         print(time.localtime())
-
-    #printvar
-    elif enit[0:10] == "printvar: ":
-        q = enit.find(":")
-        #print([10:])
 
     #experiments
     elif enit == "pulse.experiments":
@@ -213,84 +189,6 @@ while True:
     elif enit[0:7] == "pause: ":
         time.sleep(int(enit[7:]))
 
-    #variables
-    elif "=" in enit:
-        s = enit.find("=")
-        n = enit[:s-1]
-        v = enit[s+1:]
-
-        # detects if the variable has a math function and gets the result and saves it
-        if "+" in v:
-            a = v.find("+")
-            b = v[:a-1]
-            c = v[a+1:]
-            global x 
-            if "." in v:
-                b = float(b)
-                c = float(c)
-            else:
-                b = int(b)
-                c = int(c)
-            d = b + c
-            savevar(n,d)
-
-        if "-" in v:
-            a = v.find("-")
-            b = v[:a-1]
-            c = v[a+1:]
-            if "." in v:
-                b = float(b)
-                c = float(c)
-            else:
-                b = int(b)
-                c = int(c)
-            d = b - c
-            savevar(n,d)
-
-        if "*" in v:
-            a = v.find("*")
-            b = v[:a-1]
-            c = v[a+1:]
-            if "." in v:
-                b = float(b)
-                c = float(c)
-            else:
-                b = int(b)
-                c = int(c)
-            d = b * c
-            savevar(n,d)
-
-        if "/" in v:
-            a = v.find("/")
-            b = v[:a-1]
-            c = v[a+1:]
-            if "." in v:
-                b = float(b)
-                c = float(c)
-            else:
-                b = int(b)
-                c = int(c)
-            d = b / c
-            savevar(n,d)
-
-        if "%" in v:
-            a = v.find("%")
-            b = v[:a-1]
-            c = v[a+1:]
-            if "." in v:
-                b = float(b)
-                c = float(c)
-            else:
-                b = int(b)
-                c = int(c)
-            d = b % c
-            savevar(n,d)       
-        else:
-            #if the variable does not have a math function then it will just save it
-            savevar(n,v)
-            q = savevar(n,v)
-            print(q)
-    
     #addition
     elif "+" in enit:
         a = enit.find("+")
@@ -360,10 +258,24 @@ while True:
             c = int(c)
         d = b % c
         print(round(d, 3))
+
+    #exponents
+    elif "^" in enit:
+        a = enit.find("^")
+        b = enit[:a-1]
+        c = enit[a+1:]
+        if "." in enit:
+            b = float(b)
+            c = float(c)
+        else:
+            b = int(b)
+            c = int(c)
+        d = b ** c
+        print(round(d, 3))
     
     #cmds
     elif enit == "pulse.cmds":
         print(cmds)
-    # non-existant command | if the input does not have a existing command then it will print the non existant command
+    # non-existent command | if the input does not have a existing command then it will print the non existant command
     else:
         print('"' + enit + '"' + " is not a valid command")
