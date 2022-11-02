@@ -49,7 +49,7 @@ cmds = (
     "\n"
     "pulse.terminate                                       | Kills the program"
     "\n"
-    "time: (seconds)                                       | Sets a timer for X amount of seconds" # - in dev when var gets fully made
+    "pause: (seconds)                                      | Sets a timer for X amount of seconds" # - in dev when var gets fully made
     "\n"
     "pulse                                                 | Pulse by MaxChip & Talleeenos69 2022 - 2022"
     "\n"
@@ -63,7 +63,7 @@ cmds = (
     "\n"
     "N = V                                                 | Creates a variable with a value in the pulse instance" #dev
     "\n"
-    "file: (file.filetype) // N> (e, w, r) // (w) > (text) | Creates / writes, deletes, reads a file"
+    "file: (file.filetype) // N> (e, w, r, c) // (w) > (text) | Creates / writes, deletes, reads a file"
     "\n"
     "pulse.experiments                                     | Shows a list of experiments that are available"
 )
@@ -139,6 +139,10 @@ while True:
     elif enit[0:7] == "print: ":
         print(enit[7:])
 
+    #time
+    elif enit == "time":
+        print(time.localtime())
+
     #printvar
     elif enit[0:10] == "printvar: ":
         q = enit.find(":")
@@ -188,8 +192,8 @@ while True:
             f = open(a, "r")
             d = f.read()
             print(d)
-
-        f.close()
+        elif c == "c":
+            f.close()
         
 
     #terminate
@@ -201,8 +205,8 @@ while True:
         print("Pulse by MaxChip and Talleeenos69 2022 - 2022")
 
     #timer
-    elif enit[0:6] == "time: ":
-        time.sleep(int(enit[6:]))
+    elif enit[0:7] == "pause: ":
+        time.sleep(int(enit[7:]))
 
     #variables
     elif "=" in enit:
@@ -210,6 +214,7 @@ while True:
         n = enit[:s-1]
         v = enit[s+1:]
 
+        # detects if the variable has a math function and gets the result and saves it
         if "+" in v:
             a = v.find("+")
             b = v[:a-1]
@@ -224,7 +229,6 @@ while True:
             d = b + c
             savevar(n,d)
 
-        #detects if the variable has a math function and gets the result and saves it
         if "-" in v:
             a = v.find("-")
             b = v[:a-1]
