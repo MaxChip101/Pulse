@@ -51,6 +51,8 @@ cmds = (
     "\n"
     "pause: (seconds)                                      | Sets a timer for X amount of seconds" # - in dev when var gets fully made
     "\n"
+    "time                                                  | Prints the time into the Terminal"
+    "\n"
     "pulse                                                 | Pulse by MaxChip & Talleeenos69 2022 - 2022"
     "\n"
     "X + Y                                                 | Adds 2 numbers together" # -
