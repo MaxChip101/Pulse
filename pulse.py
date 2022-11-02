@@ -1,7 +1,7 @@
 ########################################
 # PULSE 
 ########################################
-#pycharm test
+
 #Libraries
 import os
 import time
