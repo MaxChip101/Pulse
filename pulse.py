@@ -32,7 +32,7 @@ cmds = (
     "\n"
     "pause: (seconds)                                         | Sets a timer for X amount of seconds"
     "\n"
-    "time                                                     | Prints the time into the Terminal"
+    "pulse.time                                               | Prints the time into the Terminal"
     "\n"
     "pulse                                                    | Pulse by MaxChip & Talleeenos69 2022 - 2022"
     "\n"
@@ -44,7 +44,7 @@ cmds = (
     "\n"
     "X / Y                                                    | Divides 2 numbers from each other"
     "\n"
-    "X % Y                                                    | Mods 2 numbers from each other"
+    "X $ Y                                                    | Mods 2 numbers from each other"
     "\n"
     "X ^ Y                                                    | Puts a number to the exponent to another number"
     "\n"
@@ -246,8 +246,8 @@ while True:
         print(round(d, 3))
 
     #modulus
-    elif "%" in enit:
-        a = enit.find("%")
+    elif "$" in enit:
+        a = enit.find("$")
         b = enit[:a-1]
         c = enit[a+1:]
         if "." in enit:
