@@ -131,10 +131,13 @@ while True:
 
     #Commands
 
+    if enit == "null":
+        pass
+
     #logo
-    if enit == "pulse.logo":
+    elif enit == "pulse.logo":
         Logo()
-    
+
     #print
     elif enit[0:7] == "print: ":
         print(enit[7:])
