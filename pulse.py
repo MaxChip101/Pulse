@@ -12,22 +12,17 @@ import requests
 def exp1():
     pass
 
-
 def exp2():
     pass
-
 
 def exp3():
     pass
 
-
 def exp4():
     pass
 
-
 def exp5():
     pass
-
 
 # commands | list of commands
 cmds = (
@@ -57,19 +52,19 @@ cmds = (
     "\n"
     "sqrt: (num)                                              | Puts the number you put in to the square root"
     "\n"
-    "pi: (num)                                                | Puts the number you put in to the square root"
+    "pi: (num)                                                | Puts the number you put in to pi"
     "\n"
-    "sin: (num)                                               | Puts the number you put in to the square root"
+    "sin: (num)                                               | Puts the number you put in to sine"
     "\n"
-    "cos: (num)                                               | Puts the number you put in to the square root"
+    "cos: (num)                                               | Puts the number you put in to cosine"
     "\n"
-    "tan: (num)                                               | Puts the number you put in to the square root"
+    "tan: (num)                                               | Puts the number you put in to tangent"
     "\n"
     "file: (file.filetype) // N> (e, w, r) // (w) > (text)    | Creates / writes, deletes, reads a file"
     "\n"
     "pulse.experiments                                        | Shows a list of experiments that are available"
     "\n"
-    "http: {https://web.domain/}                              | Does a lot of things with website data and requests 'THIS WILL NOT WORK AS IT IS EXPERIMENTAL RIGHT NOW'"
+    "http: {https://web.domain/} // N> (html, status)         | Does a lot of things with website html and requests"
 )
 # experiments | list of experiments
 experiments = (
@@ -197,31 +192,20 @@ while True:
             f = open(a, "r")
             d = f.read()
             print(d)
-        f.close()
     # end of file editor
 
     # http requests
-    elif enit[0:6] == "http: " and False:
+    elif enit[0:6] == "http: ":
         a = enit[6:]
+        r = requests.get(a)
         c = input(" N> ")
-        # Remove files
-        if c == "e":
-            print("ARE YOU SURE YOU WANT TO ERASE THIS FILE.\n Y / N")
-            o = input(" > ")
-            if o == "y":
-                os.remove(a)
-            else:
-                pass
-        # Write to Files
-        elif c == "w":
-            f = open(a, "w")
-            b = input(" > ")
-            f.write(b + "\n")
-        elif c == "r":
-            f = open(a, "r")
-            d = f.read()
-            print(d)
-        f.close()
+        # gets website html data
+        if c == "html":
+            print(r.text)
+            print(" ")
+        elif c == "status":
+            print(r.ok)
+            print(r)
 
     # terminate
     elif enit == "pulse.terminate":
@@ -277,7 +261,7 @@ while True:
         d = b * c
         print(round(d, 3))
 
-    # devision
+    # division
     elif "/" in enit:
         a = enit.find("/")
         b = enit[:a - 1]
@@ -330,9 +314,53 @@ while True:
         d = math.sqrt(b)
         print(round(d, 3))
 
+    # pi
+    elif enit[0:4] == "pi: ":
+        a = enit.find("pi: ")
+        b = enit[a + 4:]
+        if "." in enit:
+            b = float(b)
+        else:
+            b = int(b)
+        d = math.pi(b)
+        print(round(d, 3))
+
+    # sine
+    elif enit[0:5] == "sin: ":
+        a = enit.find("sin: ")
+        b = enit[a + 5:]
+        if "." in enit:
+            b = float(b)
+        else:
+            b = int(b)
+        d = math.sin(b)
+        print(round(d, 3))
+
+    # cosine
+    elif enit[0:5] == "cos: ":
+        a = enit.find("cos: ")
+        b = enit[a + 5:]
+        if "." in enit:
+            b = float(b)
+        else:
+            b = int(b)
+        d = math.cos(b)
+        print(round(d, 3))
+
+    # tangent
+    elif enit[0:5] == "tan: ":
+        a = enit.find("tan: ")
+        b = enit[a + 5:]
+        if "." in enit:
+            b = float(b)
+        else:
+            b = int(b)
+        d = math.tan(b)
+        print(round(d, 3))
+
     # cmds
     elif enit == "pulse.cmds":
         print(cmds)
-    # non-existent command | if the input does not have a existing command then it will print the non existent command
+    # non-existent command | if the input does not have an existing command then it will print the non-existent command as an error
     else:
         print('"' + enit + '"' + " is not a valid command")
