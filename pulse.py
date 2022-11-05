@@ -6,7 +6,7 @@
 import os
 import time
 import math
-
+import requests
 
 # experiments | experiments that are being tested
 def exp1():
@@ -65,9 +65,11 @@ cmds = (
     "\n"
     "tan: (num)                                               | Puts the number you put in to the square root"
     "\n"
-    "file: (file.filetype) // N> (e, w, r, c) // (w) > (text) | Creates / writes, deletes, reads a file"
+    "file: (file.filetype) // N> (e, w, r) // (w) > (text)    | Creates / writes, deletes, reads a file"
     "\n"
     "pulse.experiments                                        | Shows a list of experiments that are available"
+    "\n"
+    "http: {https://web.domain/}                              | Does a lot of things with website data and requests 'THIS WILL NOT WORK AS IT IS EXPERIMENTAL RIGHT NOW'"
 )
 # experiments | list of experiments
 experiments = (
@@ -190,13 +192,36 @@ while True:
             f = open(a, "w")
             b = input(" > ")
             f.write(b + "\n")
+        # Read Files
         elif c == "r":
             f = open(a, "r")
             d = f.read()
             print(d)
-        elif c == "c":
-            f.close()
+        f.close()
     # end of file editor
+
+    # http requests
+    elif enit[0:6] == "http: " and False:
+        a = enit[6:]
+        c = input(" N> ")
+        # Remove files
+        if c == "e":
+            print("ARE YOU SURE YOU WANT TO ERASE THIS FILE.\n Y / N")
+            o = input(" > ")
+            if o == "y":
+                os.remove(a)
+            else:
+                pass
+        # Write to Files
+        elif c == "w":
+            f = open(a, "w")
+            b = input(" > ")
+            f.write(b + "\n")
+        elif c == "r":
+            f = open(a, "r")
+            d = f.read()
+            print(d)
+        f.close()
 
     # terminate
     elif enit == "pulse.terminate":
@@ -308,7 +333,6 @@ while True:
     # cmds
     elif enit == "pulse.cmds":
         print(cmds)
-    # non-existent command | if the input does not have a existing command then it will print the non existant command
+    # non-existent command | if the input does not have a existing command then it will print the non existent command
     else:
         print('"' + enit + '"' + " is not a valid command")
-
