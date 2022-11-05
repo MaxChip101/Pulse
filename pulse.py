@@ -1,30 +1,37 @@
 ########################################
-# PULSE 
+# PULSE
 ########################################
 
-#Libraries
+# Libraries
 import os
 import time
+import math
 
-#experiments | experiments that are being tested
+
+# experiments | experiments that are being tested
 def exp1():
     pass
+
 
 def exp2():
     pass
 
+
 def exp3():
     pass
+
 
 def exp4():
     pass
 
+
 def exp5():
     pass
 
-#commands | list of commands
+
+# commands | list of commands
 cmds = (
-    "print: txt                                               | Prints a text to the Terminal"
+    "print: (txt)                                               | Prints a text to the Terminal"
     "\n"
     "pulse.logo                                               | Prints the logo for Pulse in the Terminal"
     "\n"
@@ -48,11 +55,21 @@ cmds = (
     "\n"
     "X ^ Y                                                    | Puts a number to the exponent to another number"
     "\n"
+    "sqrt: (num)                                              | Puts the number you put in to the square root"
+    "\n"
+    "pi: (num)                                                | Puts the number you put in to the square root"
+    "\n"
+    "sin: (num)                                               | Puts the number you put in to the square root"
+    "\n"
+    "cos: (num)                                               | Puts the number you put in to the square root"
+    "\n"
+    "tan: (num)                                               | Puts the number you put in to the square root"
+    "\n"
     "file: (file.filetype) // N> (e, w, r, c) // (w) > (text) | Creates / writes, deletes, reads a file"
     "\n"
     "pulse.experiments                                        | Shows a list of experiments that are available"
 )
-#experiments | list of experiments 
+# experiments | list of experiments
 experiments = (
     "pulse.experiment1 | Experiment1 has no value"
     "\n"
@@ -65,22 +82,23 @@ experiments = (
     "pulse.experiment5 | Experiment5 has no value"
 )
 
-#logo
+
+# logo
 def Logo():
     print("""
-    ,,,,.....                                                        .............,,
-    ,,,*/****,.                      (@(                              ..............
-    ,,,@@(..../@@@                   (@(                               .............
-    *,,@@#..... (@@  ,@@       @@    (@(     #@@@@@@%      %@@@@@%  ................
-    *,,@@#......@@/  ,@@       @@    #@#   (@#      ..   @@.     /@&    ............
-    **,@@@@@@@@@#    ,@@       @@    #@#   ,@@@(,.   ...@@@@@@@@@@@@................
-    **,@@#......     ,@@       @@    #@#       .*#@@@*..@@,.........................
-    **,@@#......      @@      /@@    #@#   *.......#@#...@@/.......*................
-    **,@@#......       %@@@@@, @@    #@#...*@@@@@@@&.......&@@@@@@@(................
-    *,,,,,.....                     ....................,,,,,,,,,,,,,,,,,,,,,,,,,,,.
-    *,,,,,......                 .................,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-    *,,,,.......               ...............,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-    ,,,,,.......             ..............,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    ..........                                                        ..............
+    **************                   #@#                              ..............
+    ***@@@@@@@@@@                    #@#                               .............
+    **,@@...... @@    @@       @@    #@#     #@@@@@@%.    @@@@@@@@ .................
+    **,@@.......@@    @@       @@    #@#   #@#     ...  @@        @@    ............
+    **,@@@@@@@@@@     @@       @@    #@#     #@#   ...  @@@@@@@@@@@.................
+    **,@@.......      @@       @@    #@#      ..#@#..   @@..........................
+    **,@@.......      @@       @@    #@#   ........#@#...#@.........................
+    **,@@.......       @@@@@@@@@     #@#...@@@@@@@@@....  #@@@@@@@#.................
+    **,,,,.....                     ....................,,,,,,,,,,,,,,,,,,,,,,,,,,,.
+    **,,,,......                 .................,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    **,,,.......               ...............,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+    *,,,,.......             ..............,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
     ,,,,.......            .............,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
     ,,,.......            ............,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
     ,,,.......          ............,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -99,9 +117,11 @@ def Logo():
                     ..........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                     ...........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
                      ...........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-                      ...........,,,,,,,,,,,,,,,,,,,,,,,,,,,,,MaxChip101Talleeenos69
+                      ...........,,,,,,,,,,,,,,,,,,,,,,| MaxChip101 & Talleeenos69 |
 
     """)
+
+
 # Tips
 print('''
 Type "pulse.cmds" for a list of commands.
@@ -109,55 +129,55 @@ Type "pulse.cmds" for a list of commands.
 
 while True:
 
-    #input
+    # input
     enit = input(" : ")
 
-    #Commands
+    # Commands
 
-    #null
+    # null
     if enit == "null":
         pass
-    #logo
+    # logo
     elif enit == "pulse.logo":
         Logo()
 
-    #print
+    # print
     elif enit[0:7] == "print: ":
         print(enit[7:])
 
-    #time
-    elif enit == "time":
+    # time
+    elif enit == "pulse.time":
         print(time.localtime())
 
-    #experiments
+    # experiments
     elif enit == "pulse.experiments":
         print(experiments)
 
-    #experiment1
+    # experiment1
     elif enit == "pulse.experiment1":
         exp1()
 
-    #experiment2
+    # experiment2
     elif enit == "pulse.experiment2":
         exp2()
 
-    #experiment3
+    # experiment3
     elif enit == "pulse.experiment3":
         exp3()
 
-    #experiment4
+    # experiment4
     elif enit == "pulse.experiment4":
         exp4()
 
-    #experiment5
+    # experiment5
     elif enit == "pulse.experiment5":
         exp5()
 
-    #file editor
+    # file editor
     elif enit[0:6] == "file: ":
         a = enit[6:]
         c = input(" N> ")
-        #Remove files
+        # Remove files
         if c == "e":
             print("ARE YOU SURE YOU WANT TO ERASE THIS FILE.\n Y / N")
             o = input(" > ")
@@ -165,8 +185,8 @@ while True:
                 os.remove(a)
             else:
                 pass
-        #Write to Files
-        elif c == "w":            
+        # Write to Files
+        elif c == "w":
             f = open(a, "w")
             b = input(" > ")
             f.write(b + "\n")
@@ -176,25 +196,25 @@ while True:
             print(d)
         elif c == "c":
             f.close()
-    #end of file editor
+    # end of file editor
 
-    #terminate
+    # terminate
     elif enit == "pulse.terminate":
         exit(0)
 
-    #pulse
+    # pulse
     elif enit == "pulse":
         print("Pulse by MaxChip and Talleeenos69 2022 - 2022")
 
-    #timer
+    # timer
     elif enit[0:7] == "pause: ":
         time.sleep(int(enit[7:]))
 
-    #addition
+    # addition
     elif "+" in enit:
         a = enit.find("+")
-        b = enit[:a-1]
-        c = enit[a+1:]
+        b = enit[:a - 1]
+        c = enit[a + 1:]
         if "." in enit:
             b = float(b)
             c = float(c)
@@ -204,11 +224,11 @@ while True:
         d = b + c
         print(round(d, 3))
 
-    #subtraction
+    # subtraction
     elif "-" in enit:
         a = enit.find("-")
-        b = enit[:a-1]
-        c = enit[a+1:]
+        b = enit[:a - 1]
+        c = enit[a + 1:]
         if "." in enit:
             b = float(b)
             c = float(c)
@@ -218,11 +238,11 @@ while True:
         d = b - c
         print(round(d, 3))
 
-    #multiplication
+    # multiplication
     elif "*" in enit:
         a = enit.find("*")
-        b = enit[:a-1]
-        c = enit[a+1:]
+        b = enit[:a - 1]
+        c = enit[a + 1:]
         if "." in enit:
             b = float(b)
             c = float(c)
@@ -232,11 +252,11 @@ while True:
         d = b * c
         print(round(d, 3))
 
-    #devision
+    # devision
     elif "/" in enit:
         a = enit.find("/")
-        b = enit[:a-1]
-        c = enit[a+1:]
+        b = enit[:a - 1]
+        c = enit[a + 1:]
         if "." in enit:
             b = float(b)
             c = float(c)
@@ -246,11 +266,11 @@ while True:
         d = b / c
         print(round(d, 3))
 
-    #modulus
+    # modulus
     elif "$" in enit:
         a = enit.find("$")
-        b = enit[:a-1]
-        c = enit[a+1:]
+        b = enit[:a - 1]
+        c = enit[a + 1:]
         if "." in enit:
             b = float(b)
             c = float(c)
@@ -260,11 +280,11 @@ while True:
         d = b % c
         print(round(d, 3))
 
-    #exponents
+    # exponents
     elif "^" in enit:
         a = enit.find("^")
-        b = enit[:a-1]
-        c = enit[a+1:]
+        b = enit[:a - 1]
+        c = enit[a + 1:]
         if "." in enit:
             b = float(b)
             c = float(c)
@@ -273,10 +293,22 @@ while True:
             c = int(c)
         d = b ** c
         print(round(d, 3))
-    
-    #cmds
+
+    # square root
+    elif enit[0:6] == "sqrt: ":
+        a = enit.find("sqrt: ")
+        b = enit[a + 6:]
+        if "." in enit:
+            b = float(b)
+        else:
+            b = int(b)
+        d = math.sqrt(b)
+        print(round(d, 3))
+
+    # cmds
     elif enit == "pulse.cmds":
         print(cmds)
     # non-existent command | if the input does not have a existing command then it will print the non existant command
     else:
         print('"' + enit + '"' + " is not a valid command")
+
