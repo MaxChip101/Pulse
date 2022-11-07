@@ -6,7 +6,13 @@
 import os
 import time
 import math
-import requests
+import requests # terminal > pip install requests
+
+def isnumber(string):
+    return any(char.isdigit() for char in string)
+
+# Variable table
+var = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",]
 
 # experiments | experiments that are being tested
 def exp1():
@@ -26,7 +32,9 @@ def exp5():
 
 # commands | list of commands
 cmds = (
-    "print: (txt)                                               | Prints a text to the Terminal"
+    "print: (txt)                                             | Prints a text to the Terminal"
+    "\n"
+    "printvar: (varn num)                                     | Prints a variable in the variable list"
     "\n"
     "pulse.logo                                               | Prints the logo for Pulse in the Terminal"
     "\n"
@@ -60,7 +68,11 @@ cmds = (
     "\n"
     "tan: (num)                                               | Puts the number you put in to tangent"
     "\n"
+    "(var num) = (var val)                                    | Sets a variable number to a specific value"
+    "\n"
     "file: (file.filetype) // N> (e, w, r) // (w) > (text)    | Creates / writes, deletes, reads a file"
+    "\n"
+    "pulse.variables                                          | Prints all variables in a list"
     "\n"
     "pulse.experiments                                        | Shows a list of experiments that are available"
     "\n"
@@ -135,6 +147,30 @@ while True:
     elif enit == "pulse.logo":
         Logo()
 
+    # variables editing
+    elif "=" in enit:
+        a = enit.find("=")
+        b = enit[:a - 1]
+        c = enit[a + 2:]
+        if isnumber(c):
+            if "." in c:
+                c = float(c)
+            else:
+                c = int(c)
+        else:
+            c = str(c)
+        var[int(b)] = c
+
+    # variables
+    elif enit == "pulse.variables":
+        print(var)
+
+    # print variable
+    elif enit[0:10] == "printvar: ":
+        a = enit.find(":")
+        b = enit[a + 1:]
+        print(var[int(b)])
+
     # print
     elif enit[0:7] == "print: ":
         print(enit[7:])
@@ -199,7 +235,7 @@ while True:
         # gets website html data
         if c == "html":
             print(r.text)
-            print(" ")
+            print(r)
         elif c == "status":
             print(r.ok)
             print(r)
