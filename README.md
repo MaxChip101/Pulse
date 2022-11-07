@@ -1,5 +1,5 @@
 # Pulse
-A Program writen in Python to be able to manage files and do http requests and do mathematical equations with a Command Line Interface. more updates in the future
+A Program writen in Python to be able to manage files and do http requests and do mathematical equations and store variables with a Command Line Interface. more updates in the future
 
 NOTE: if you got this file from any other officially released platform. you are in trouble!!!
 
