@@ -2,3 +2,4 @@
 1.1 - Removed variables and added more math functions
 1.2 - Added even more math functions and made http request functions with the requests library
 1.3 - Remade variables and added variable functions
+1.4 - Made it so that you can create variables instead of a 50 variable limit
