@@ -6,29 +6,37 @@
 import os
 import time
 import math
-import requests # terminal > pip install requests
+import requests  # terminal > pip install requests
+
 
 def isnumber(string):
     return any(char.isdigit() for char in string)
 
+
 # Variable table
-var = ["","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","","",]
+var = []
+
 
 # experiments | experiments that are being tested
 def exp1():
     pass
 
+
 def exp2():
     pass
+
 
 def exp3():
     pass
 
+
 def exp4():
     pass
 
+
 def exp5():
     pass
+
 
 # commands | list of commands
 cmds = (
@@ -128,6 +136,7 @@ def Logo():
                       ...........,,,,,,,,,,,,,,,,,,,,,,| MaxChip101 & Talleeenos69 |
     """)
 
+
 # Tips
 print('''
 Type "pulse.cmds" for a list of commands.
@@ -147,7 +156,13 @@ while True:
     elif enit == "pulse.logo":
         Logo()
 
-    # variables editing
+    # code
+    elif enit == "pulse.code":
+        f = open("pulse.py", "r")
+        d = f.read()
+        print(d)
+
+    # variable editing/adding
     elif "=" in enit:
         a = enit.find("=")
         b = enit[:a - 1]
@@ -159,7 +174,10 @@ while True:
                 c = int(c)
         else:
             c = str(c)
-        var[int(b)] = c
+        if var.__contains__(b):
+            var[int(b)] = c
+        else:
+            var.append(c)
 
     # variables
     elif enit == "pulse.variables":
