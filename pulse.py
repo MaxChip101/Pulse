@@ -21,7 +21,6 @@ var = []
 def exp1():
     pass
 
-
 def exp2():
     pass
 
@@ -76,13 +75,15 @@ cmds = (
     "\n"
     "tan: (num)                                               | Puts the number you put in to tangent"
     "\n"
-    "(var num) = (var val)                                    | Sets a variable number to a specific value"
+    "(var num) = (var val)                                    | Sets / creates a variable number to a specific value"
     "\n"
     "file: (file.filetype) // N> (e, w, r) // (w) > (text)    | Creates / writes, deletes, reads a file"
     "\n"
     "pulse.variables                                          | Prints all variables in a list"
     "\n"
     "pulse.experiments                                        | Shows a list of experiments that are available"
+    "\n"
+    "pulse.code                                               | Prints the code of pulse into the terminal"
     "\n"
     "http: {https://web.domain/} // N> (html, status)         | Does a lot of things with website html and requests"
 )
@@ -227,12 +228,8 @@ while True:
         c = input(" N> ")
         # Remove files
         if c == "e":
-            print("ARE YOU SURE YOU WANT TO ERASE THIS FILE.\n Y / N")
-            o = input(" > ")
-            if o == "y":
-                os.remove(a)
-            else:
-                pass
+            os.remove(a)
+
         # Write to Files
         elif c == "w":
             f = open(a, "w")
