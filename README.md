@@ -1,10 +1,10 @@
 # Pulse
 A Program writen in Python to be able to manage files and do http requests and do mathematical equations and store variables with a Command Line Interface. more updates in the future
 
-NOTE: if you got this file from any other officially released platform. you are in trouble!!!
+NOTE: This project's code and releases are strictly hosted on this github repository. If you got this code from any other source, please delete it and download the official release from https://github.com/MaxChip101/Pulse/releases/tag/Pulse1.0
 
 
-Written by MaxChip101 and Talleeenos69, 2022 - 2022
+Written by MaxChip101 and Talleeenos69, 2022
 
     **************                   #@#                              ..............
     ***@@@@@@@@@@                    #@#                               .............
