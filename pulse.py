@@ -86,6 +86,8 @@ cmds = (
     "pulse.code                                               | Prints the code of pulse into the terminal"
     "\n"
     "http: {https://web.domain/} // N> (html, status)         | Does a lot of things with website html and requests"
+    "\n"
+    "pulse.countVowels                                        | Counts the amount of vowels in a string"
 )
 # experiments | list of experiments
 experiments = (
@@ -266,6 +268,9 @@ while True:
     # timer
     elif enit[0:7] == "pause: ":
         time.sleep(int(enit[7:]))
+    # vowel counter    
+    elif enit == "pulse.countVowels":
+        countVowels()
 
     # addition
     elif "+" in enit:
@@ -412,3 +417,16 @@ while True:
     # non-existent command | if the input does not have an existing command then it will print the non-existent command as an error
     else:
         print('"' + enit + '"' + " is not a valid command")
+        
+    # vowel Counter
+    def countVowels():
+        vowelCount = 0
+        userin = input("Enter a sting to count vowels : ")
+        vowelCount += userin.count("a")
+        vowelCount += userin.count("e")
+        vowelCount += userin.count("i")
+        vowelCount += userin.count("o")
+        vowelCount += userin.count("u")
+        print("Counting...")
+        time.sleep(1)
+        print("There are " + str(vowelCount) + " vowel(s).")
