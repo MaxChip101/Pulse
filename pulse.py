@@ -27,7 +27,7 @@ def countVowels():
     vowelCount += userin.count("i")
     vowelCount += userin.count("o")
     vowelCount += userin.count("u")
-    print("Counting...")
+    print("Pulse is counting...")
     time.sleep(1)
     print("There are " + str(vowelCount) + " vowel(s).")
 
