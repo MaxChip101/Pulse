@@ -16,6 +16,21 @@ def isnumber(string):
 # Variable table
 var = []
 
+# Define Functions
+
+# Vowel Counter
+def countVowels():
+    vowelCount = 0
+    userin = input("Enter a sting to count vowels : ")
+    vowelCount += userin.count("a")
+    vowelCount += userin.count("e")
+    vowelCount += userin.count("i")
+    vowelCount += userin.count("o")
+    vowelCount += userin.count("u")
+    print("Counting...")
+    time.sleep(1)
+    print("There are " + str(vowelCount) + " vowel(s).")
+
 
 # experiments | experiments that are being tested
 def exp1():
@@ -417,16 +432,3 @@ while True:
     # non-existent command | if the input does not have an existing command then it will print the non-existent command as an error
     else:
         print('"' + enit + '"' + " is not a valid command")
-        
-    # vowel Counter
-    def countVowels():
-        vowelCount = 0
-        userin = input("Enter a sting to count vowels : ")
-        vowelCount += userin.count("a")
-        vowelCount += userin.count("e")
-        vowelCount += userin.count("i")
-        vowelCount += userin.count("o")
-        vowelCount += userin.count("u")
-        print("Counting...")
-        time.sleep(1)
-        print("There are " + str(vowelCount) + " vowel(s).")
