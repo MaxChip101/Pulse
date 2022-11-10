@@ -6,7 +6,7 @@
 import os
 import time
 import math
-import requests  # terminal > pip install requests
+#import requests  # terminal > pip install requests
 
 
 def isnumber(string):
@@ -16,13 +16,38 @@ def isnumber(string):
 # Variable table
 var = []
 
+# Define System-Wide variables ---------------------------------------
 
-# Define Functions
+clearScreenTimes = 200
 
-# experiments | experiments that are being tested
+# Define Functions ---------------------------------------------------
+
+# Vowel Counter
+def getStringInfo():
+    vowelCount = 0
+    userin = input("Enter a sting : ")
+    consonants = 0
+    spacecount = userin.count(" ")
+    vowelCount += userin.count("a")
+    vowelCount += userin.count("e")
+    vowelCount += userin.count("i")
+    vowelCount += userin.count("o")
+    vowelCount += userin.count("u")
+    print("Pulse is calculating...")
+    time.sleep(1)
+    consonants = int(len(userin) - vowelCount)
+    print("Length : " + str(len(userin)) + " | Vowels: " + str(vowelCount) + " | Consonants: " + str(consonants) + " | Spaces : " + str(spacecount) + " | Words : " + str(spacecount + 2))
+
+# clear screen
+def clearScreen(clearScreenTimes):
+    while clearScreenTimes > 1:
+        clearScreenTimes -= 1
+        print("\n")
+
+
+# experiments | experiments that are being tested --------------------
 def exp1():
     pass
-
 
 def exp2():
     pass
@@ -91,6 +116,8 @@ cmds = (
     "http: {https://web.domain/} // N> (html, status)         | Does a lot of things with website html and requests"
     "\n"
     "pulse.countVowels                                        | Counts the amount of vowels in a string"
+    "\n"
+    "clear                                                    | Clears the screen"
 )
 # experiments | list of experiments
 experiments = (
@@ -272,6 +299,14 @@ while True:
     elif enit[0:7] == "pause: ":
         time.sleep(int(enit[7:]))
 
+    # vowel counter    
+    elif enit == "pulse.stringInfo":
+        getStringInfo()
+
+    # clear screen
+    elif enit == "clear":
+        clearScreen(clearScreenTimes)
+
     # addition
     elif "+" in enit:
         a = enit.find("+")
@@ -416,4 +451,4 @@ while True:
         print(cmds)
     # non-existent command | if the input does not have an existing command then it will print the non-existent command as an error
     else:
-        print('"' + enit + '"' + " is not a valid command")
+        print('"' + enit + '"' + " is not a valid command. Type 'pulse.cmds' for a list of commands")
