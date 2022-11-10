@@ -12,11 +12,11 @@ First make sure you have the latest version of python install on your machine
 **Linux**------------------------------------------------------------------------
 
 1. 
-   **Ubuntu/Debian** - sudo apt install python3
+   **Ubuntu/Debian** - sudo apt install python3 python3-pip
 
-   **Fedora or Redhat based distro** -  sudo yum install yum-utils sudo yum-builddep python3
+   **Fedora or Redhat based distro** -  sudo yum install yum-utils sudo yum-builddep python3 python-pip
 
-   **Arch (AUR)** - https://archlinux.org/packages/core/x86_64/python/
+   **Arch (AUR)** - https://archlinux.org/packages/core/x86_64/python/ and **"sudo pacman -S python-pip"**
    
 2. 
    open the terminal and paste "pip install requests" and wait for it to install
