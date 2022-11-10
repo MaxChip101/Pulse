@@ -16,6 +16,7 @@ def isnumber(string):
 # Variable table
 var = []
 
+
 # Define Functions
 
 # Vowel Counter
@@ -32,6 +33,7 @@ def countVowels(txt):
 # experiments | experiments that are being tested
 def exp1():
     pass
+
 
 def exp2():
     pass
@@ -240,8 +242,8 @@ while True:
     elif "vowel:" in enit:
         a = enit.find(":")
         b = enit[a + 1:]
-        countvowels(b)
-        
+        countVowels(b)
+
     # file editor
     elif enit[0:6] == "file: ":
         a = enit[6:]
@@ -286,9 +288,6 @@ while True:
     # timer
     elif enit[0:7] == "pause: ":
         time.sleep(int(enit[7:]))
-    # vowel counter    
-    elif enit == "pulse.countVowels":
-        countVowels()
 
     # addition
     elif "+" in enit:
