@@ -19,17 +19,6 @@ var = []
 
 # Define Functions
 
-# Vowel Counter
-def countVowels(txt):
-    vowelCount = 0
-    vowelCount += txt.count("a")
-    vowelCount += txt.count("e")
-    vowelCount += txt.count("i")
-    vowelCount += txt.count("o")
-    vowelCount += txt.count("u")
-    print(vowelCount)
-
-
 # experiments | experiments that are being tested
 def exp1():
     pass
@@ -237,12 +226,6 @@ while True:
     # experiment5
     elif enit == "pulse.experiment5":
         exp5()
-
-    # Vowel Counter
-    elif "vowel:" in enit:
-        a = enit.find(":")
-        b = enit[a + 1:]
-        countVowels(b)
 
     # file editor
     elif enit[0:6] == "file: ":
