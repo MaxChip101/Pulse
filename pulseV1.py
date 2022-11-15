@@ -6,7 +6,7 @@
 import os
 import time
 import math
-#import requests  # terminal > pip install requests
+import requests  # terminal > pip install requests
 
 
 def isnumber(string):
@@ -23,9 +23,8 @@ clearScreenTimes = 200
 # Define Functions ---------------------------------------------------
 
 # Vowel Counter
-def getStringInfo():
+def getStringInfo(userin):
     vowelCount = 0
-    userin = input("Enter a sting : ")
     consonants = 0
     spacecount = userin.count(" ")
     vowelCount += userin.count("a")
@@ -33,8 +32,6 @@ def getStringInfo():
     vowelCount += userin.count("i")
     vowelCount += userin.count("o")
     vowelCount += userin.count("u")
-    print("Pulse is calculating...")
-    time.sleep(1)
     consonants = int(len(userin) - vowelCount)
     print("Length : " + str(len(userin)) + " | Vowels: " + str(vowelCount) + " | Consonants: " + str(consonants) + " | Spaces : " + str(spacecount) + " | Words : " + str(spacecount + 2))
 
@@ -115,9 +112,9 @@ cmds = (
     "\n"
     "http: {https://web.domain/} // N> (html, status)         | Does a lot of things with website html and requests"
     "\n"
-    "pulse.countVowels                                        | Counts the amount of vowels in a string"
+    "strinfo                                                  | Counts the amount of vowels in a string"
     "\n"
-    "clear                                                    | Clears the screen"
+    "pulse.clear                                              | Clears the screen"
 )
 # experiments | list of experiments
 experiments = (
@@ -300,11 +297,13 @@ while True:
         time.sleep(int(enit[7:]))
 
     # vowel counter    
-    elif enit == "pulse.stringInfo":
-        getStringInfo()
+    elif "strinfo: " in enit:
+        a = enit.find("+")
+        b = enit[:a - 1]
+        getStringInfo(b)
 
     # clear screen
-    elif enit == "clear":
+    elif enit == "pulse.clear":
         clearScreen(clearScreenTimes)
 
     # addition
