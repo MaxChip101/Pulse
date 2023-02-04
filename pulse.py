@@ -6,12 +6,9 @@
 import os
 import time
 import math
+
+# External Libraries
 import requests  # terminal > pip install requests
-
-
-def isnumber(string):
-    return any(char.isdigit() for char in string)
-
 
 # Variable table
 var = []
@@ -20,31 +17,35 @@ var = []
 
 clearScreenTimes = 200
 
+
 # Define Functions ---------------------------------------------------
 
 # Vowel Counter
 def getStringInfo(userin):
     vowelCount = 0
     consonants = 0
-    spacecount = userin.count(" ")
+    spaceCount = userin.count(" ")
     vowelCount += userin.count("a")
     vowelCount += userin.count("e")
     vowelCount += userin.count("i")
     vowelCount += userin.count("o")
     vowelCount += userin.count("u")
     consonants = int(len(userin) - vowelCount)
-    print("Length : " + str(len(userin)) + " | Vowels: " + str(vowelCount) + " | Consonants: " + str(consonants) + " | Spaces : " + str(spacecount) + " | Words : " + str(spacecount + 2))
+    print("Length : " + str(len(userin)) + " | Vowels: " + str(vowelCount) + " | Consonants: " + str(
+        consonants) + " | Spaces : " + str(spaceCount) + " | Words : " + str(spaceCount + 2))
+
 
 # clear screen
-def clearScreen(clearScreenTimes):
-    while clearScreenTimes > 1:
-        clearScreenTimes -= 1
+def clearScreen(clearScreenNum):
+    while clearScreenNum > 1:
+        clearScreenNum -= 1
         print("\n")
 
 
 # experiments | experiments that are being tested --------------------
 def exp1():
     pass
+
 
 def exp2():
     pass
@@ -66,7 +67,7 @@ def exp5():
 cmds = (
     "print: (txt)                                             | Prints a text to the Terminal"
     "\n"
-    "printvar: (varn num)                                     | Prints a variable in the variable list"
+    "print-var: (var num)                                     | Prints a variable in the variable list"
     "\n"
     "pulse.logo                                               | Prints the logo for Pulse in the Terminal"
     "\n"
@@ -76,7 +77,7 @@ cmds = (
     "\n"
     "pulse.time                                               | Prints the time into the Terminal"
     "\n"
-    "pulse                                                    | Pulse by MaxChip & Talleeenos69 2022 - 2022"
+    "pulse                                                    | Pulse by MaxChip & Talleeenos69 2022 - 2023"
     "\n"
     "X + Y                                                    | Adds 2 numbers together"
     "\n"
@@ -86,7 +87,7 @@ cmds = (
     "\n"
     "X / Y                                                    | Divides 2 numbers from each other"
     "\n"
-    "X $ Y                                                    | Mods 2 numbers from each other"
+    "X % Y                                                    | Mods 2 numbers from each other"
     "\n"
     "X ^ Y                                                    | Puts a number to the exponent to another number"
     "\n"
@@ -100,9 +101,11 @@ cmds = (
     "\n"
     "tan: (num)                                               | Puts the number you put in to tangent"
     "\n"
-    "(var num) = (var val)                                    | Sets / creates a variable number to a specific value"
+    "(var type (str, int, float)) (var num) = (var val)       | Creates a variable number to a specific value"
     "\n"
-    "file: (file.filetype) // N> (e, w, r) // (w) > (text)    | Creates / writes, deletes, reads a file"
+    "(var num) = (var val)                                    | Sets a variable number to a specific value"
+    "\n"
+    "file: (file.filetype)                                    | Creates / writes, deletes, reads a file"
     "\n"
     "pulse.variables                                          | Prints all variables in a list"
     "\n"
@@ -110,7 +113,7 @@ cmds = (
     "\n"
     "pulse.code                                               | Prints the code of pulse into the terminal"
     "\n"
-    "http: {https://web.domain/} // N> (html, status)         | Does a lot of things with website html and requests"
+    "http: (https://web.domain/)                              | Does a lot of things with website html and requests"
     "\n"
     "strinfo                                                  | Counts the amount of vowels in a string"
     "\n"
@@ -135,7 +138,7 @@ def Logo():
     print("""         
     **************                   #@#                              ..............
     ***@@@@@@@@@@                    #@#                               .............
-    **,@@...... @@    @@       @@    #@#     #@@@@@@%.    @@@@@@@@ .................
+    **,@@...... @@    @@       @@    #@#     #@@@@@@#.    @@@@@@@@ .................
     **,@@.......@@    @@       @@    #@#   #@#     ...  @@        @@    ............
     **,@@@@@@@@@@     @@       @@    #@#     #@#   ...  @@@@@@@@@@@.................
     **,@@.......      @@       @@    #@#      ..#@#..   @@..........................
@@ -175,279 +178,345 @@ Type "pulse.cmds" for a list of commands.
 while True:
 
     # input
-    enit = input(" : ")
+    CommandLine = input(" : ")
 
     # Commands
 
     # null
-    if enit == "null":
+
+    if CommandLine == "":
         pass
+
+    elif "null" in CommandLine:
+        pass
+
     # logo
-    elif enit == "pulse.logo":
+    elif "pulse.logo" in CommandLine:
         Logo()
 
     # code
-    elif enit == "pulse.code":
-        f = open("pulse.py", "r")
-        d = f.read()
-        print(d)
+    elif "pulse.code" in CommandLine:
+        with open("pulse.py", "r") as f:
+            pulse_code = f.read()
+            print(pulse_code)
 
     # variable editing/adding
-    elif "=" in enit:
-        a = enit.find("=")
-        b = enit[:a - 1]
-        c = enit[a + 2:]
-        if isnumber(c):
-            if "." in c:
-                c = float(c)
-            else:
-                c = int(c)
+    elif "=" in CommandLine:
+        function = CommandLine.find("=")
+        variable = CommandLine[:function - 1]
+        value = CommandLine[function + 1:]
+
+        if "int" in variable:
+            value = int(value)
+            var.append(value)
+
+        elif "float" in variable:
+            value = float(value)
+            var.append(value)
+
+        elif "str" in variable:
+            value = str(value)
+            var.append(value)
+
         else:
-            c = str(c)
-        if var.__contains__(b):
-            var[int(b)] = c
-        else:
-            var.append(c)
+            var[int(variable)] = value
 
     # variables
-    elif enit == "pulse.variables":
+    elif "pulse.variables" in CommandLine:
         print(var)
 
     # print variable
-    elif enit[0:10] == "printvar: ":
-        a = enit.find(":")
-        b = enit[a + 1:]
-        print(var[int(b)])
+    elif "print-var:" in CommandLine:
+        function = CommandLine.find(":")
+        variable = CommandLine[function + 1:]
+        print(var[int(variable)])
 
     # print
-    elif enit[0:7] == "print: ":
-        print(enit[7:])
+    elif "print:" in CommandLine:
+        function = CommandLine.find(":")
+        print(CommandLine[function + 1:])
 
     # time
-    elif enit == "pulse.time":
+    elif "pulse.time" in CommandLine:
         print(time.localtime())
 
     # experiments
-    elif enit == "pulse.experiments":
+    elif "pulse.experiments" in CommandLine:
         print(experiments)
 
     # experiment1
-    elif enit == "pulse.experiment1":
+    elif "pulse.experiment1" in CommandLine:
         exp1()
 
     # experiment2
-    elif enit == "pulse.experiment2":
+    elif "pulse.experiment2" in CommandLine:
         exp2()
 
     # experiment3
-    elif enit == "pulse.experiment3":
+    elif "pulse.experiment3" in CommandLine:
         exp3()
 
     # experiment4
-    elif enit == "pulse.experiment4":
+    elif "pulse.experiment4" in CommandLine:
         exp4()
 
     # experiment5
-    elif enit == "pulse.experiment5":
+    elif "pulse.experiment5" in CommandLine:
         exp5()
 
     # file editor
-    elif enit[0:6] == "file: ":
-        a = enit[6:]
-        c = input(" N> ")
+    elif "file:" in CommandLine:
+        print("Write | Read | Erase")
+
+        function = CommandLine.find(":")
+        file = CommandLine[function + 1:]
+        CommandChoice = input(" C> ")
+
         # Remove files
-        if c == "e":
-            os.remove(a)
+        if "erase" in CommandChoice.lower():
+            os.remove(file)
 
         # Write to Files
-        elif c == "w":
-            f = open(a, "w")
-            b = input(" > ")
-            f.write(b + "\n")
+        elif "write" in CommandChoice.lower():
+            with open(file, "w") as f:
+                CommandWrite = input(" W> ")
+                f.write(CommandWrite + "\n")
+
         # Read Files
-        elif c == "r":
-            f = open(a, "r")
+        elif "read" in CommandChoice.lower():
+            f = open(file, "r")
             d = f.read()
             print(d)
-    # end of file editor
 
     # http requests
-    elif enit[0:6] == "http: ":
-        a = enit[6:]
-        r = requests.get(a)
-        c = input(" N> ")
+    elif "http:" in CommandLine:
+        print("Html | Status")
+
+        function = CommandLine.find(":")
+        website = CommandLine[function + 1:]
+        web_data = requests.get(website)
+        CommandChoice = input(" C> ")
+
         # gets website html data
-        if c == "html":
-            print(r.text)
-            print(r)
-        elif c == "status":
-            print(r.ok)
-            print(r)
+        if "html" in CommandChoice.lower():
+            print(web_data.text)
+            print(web_data)
+
+        elif "status" in CommandChoice.lower():
+            print(web_data.ok)
+            print(web_data)
 
     # terminate
-    elif enit == "pulse.terminate":
+    elif "pulse.terminate" in CommandLine:
         exit(0)
 
     # pulse
-    elif enit == "pulse":
-        print("Pulse by MaxChip and Talleeenos69 2022 - 2022")
+    elif CommandLine == "pulse":
+        print("Pulse by MaxChip and Talleeenos69 2022 - 2023")
 
     # timer
-    elif enit[0:7] == "pause: ":
-        time.sleep(int(enit[7:]))
+    elif "pause:" in CommandLine:
+        function = CommandLine.find(":")
+        time.sleep(int(CommandLine[function + 1:]))
 
     # vowel counter    
-    elif "strinfo: " in enit:
-        a = enit.find("+")
-        b = enit[:a - 1]
-        getStringInfo(b)
+    elif "string-info:" in CommandLine:
+        function = CommandLine.find(":")
+        string = CommandLine[function + 1:]
+        getStringInfo(string)
 
     # clear screen
-    elif enit == "pulse.clear":
+    elif "pulse.clear" in CommandLine:
         clearScreen(clearScreenTimes)
 
     # addition
-    elif "+" in enit:
-        a = enit.find("+")
-        b = enit[:a - 1]
-        c = enit[a + 1:]
-        if "." in enit:
-            b = float(b)
-            c = float(c)
+    elif "+" in CommandLine:
+        function = CommandLine.find("+")
+        value_1 = CommandLine[:function - 1]
+        value_2 = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value_1 = float(value_1)
+            value_2 = float(value_2)
+
         else:
-            b = int(b)
-            c = int(c)
-        d = b + c
-        print(round(d, 3))
+            value_1 = int(value_1)
+            value_2 = int(value_2)
+
+        result = value_1 * value_2
+        print(round(result, 3))
 
     # subtraction
-    elif "-" in enit:
-        a = enit.find("-")
-        b = enit[:a - 1]
-        c = enit[a + 1:]
-        if "." in enit:
-            b = float(b)
-            c = float(c)
+    elif "-" in CommandLine:
+        function = CommandLine.find("-")
+        value_1 = CommandLine[:function - 1]
+        value_2 = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value_1 = float(value_1)
+            value_2 = float(value_2)
+
         else:
-            b = int(b)
-            c = int(c)
-        d = b - c
-        print(round(d, 3))
+            value_1 = int(value_1)
+            value_2 = int(value_2)
+
+        result = value_1 - value_2
+        print(round(result, 3))
 
     # multiplication
-    elif "*" in enit:
-        a = enit.find("*")
-        b = enit[:a - 1]
-        c = enit[a + 1:]
-        if "." in enit:
-            b = float(b)
-            c = float(c)
+    elif "*" in CommandLine:
+        function = CommandLine.find("*")
+        value_1 = CommandLine[:function - 1]
+        value_2 = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value_1 = float(value_1)
+            value_2 = float(value_2)
+
         else:
-            b = int(b)
-            c = int(c)
-        d = b * c
-        print(round(d, 3))
+            value_1 = int(value_1)
+            value_2 = int(value_2)
+
+        result = value_1 * value_2
+        print(round(result, 3))
 
     # division
-    elif "/" in enit:
-        a = enit.find("/")
-        b = enit[:a - 1]
-        c = enit[a + 1:]
-        if "." in enit:
-            b = float(b)
-            c = float(c)
+    elif "/" in CommandLine:
+        function = CommandLine.find("/")
+        value_1 = CommandLine[:function - 1]
+        value_2 = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value_1 = float(value_1)
+            value_2 = float(value_2)
+
         else:
-            b = int(b)
-            c = int(c)
-        d = b / c
-        print(round(d, 3))
+            value_1 = int(value_1)
+            value_2 = int(value_2)
+
+        result = value_1 / value_2
+        print(round(result, 3))
 
     # modulus
-    elif "$" in enit:
-        a = enit.find("$")
-        b = enit[:a - 1]
-        c = enit[a + 1:]
-        if "." in enit:
-            b = float(b)
-            c = float(c)
+    elif "%" in CommandLine:
+        function = CommandLine.find("%")
+        value_1 = CommandLine[:function - 1]
+        value_2 = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value_1 = float(value_1)
+            value_2 = float(value_2)
+
         else:
-            b = int(b)
-            c = int(c)
-        d = b % c
-        print(round(d, 3))
+            value_1 = int(value_1)
+            value_2 = int(value_2)
+
+        result = value_1 % value_2
+        print(round(result, 3))
 
     # exponents
-    elif "^" in enit:
-        a = enit.find("^")
-        b = enit[:a - 1]
-        c = enit[a + 1:]
-        if "." in enit:
-            b = float(b)
-            c = float(c)
+    elif "^" in CommandLine:
+        function = CommandLine.find("^")
+        value_1 = CommandLine[:function - 1]
+        value_2 = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value_1 = float(value_1)
+            value_2 = float(value_2)
+
         else:
-            b = int(b)
-            c = int(c)
-        d = b ** c
-        print(round(d, 3))
+            value_1 = int(value_1)
+            value_2 = int(value_2)
+
+        result = value_1 ** value_2
+        print(round(result, 3))
 
     # square root
-    elif enit[0:6] == "sqrt: ":
-        a = enit.find("sqrt: ")
-        b = enit[a + 6:]
-        if "." in enit:
-            b = float(b)
+    elif "sqrt:" in CommandLine:
+        function = CommandLine.find(":")
+        value = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value = float(value)
+
         else:
-            b = int(b)
-        d = math.sqrt(b)
-        print(round(d, 3))
+            value = int(value)
+
+        result = math.sqrt(value)
+        print(round(result, 3))
 
     # pi
-    elif enit[0:4] == "pi: ":
-        a = enit.find("pi: ")
-        b = enit[a + 4:]
-        if "." in enit:
-            b = float(b)
+    elif "pi:" in CommandLine:
+        function = CommandLine.find(":")
+        value = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value = float(value)
+
         else:
-            b = int(b)
-        d = math.pi(b)
-        print(round(d, 3))
+            value = int(value)
+
+        result = math.pi(value)
+        print(round(result, 3))
 
     # sine
-    elif enit[0:5] == "sin: ":
-        a = enit.find("sin: ")
-        b = enit[a + 5:]
-        if "." in enit:
-            b = float(b)
+    elif "sin:" in CommandLine:
+        function = CommandLine.find(":")
+        value = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value = float(value)
+
         else:
-            b = int(b)
-        d = math.sin(b)
-        print(round(d, 3))
+            value = int(value)
+
+        result = math.sin(value)
+        print(round(result, 3))
 
     # cosine
-    elif enit[0:5] == "cos: ":
-        a = enit.find("cos: ")
-        b = enit[a + 5:]
-        if "." in enit:
-            b = float(b)
+    elif "cos:" in CommandLine:
+        function = CommandLine.find(":")
+        value = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value = float(value)
+
         else:
-            b = int(b)
-        d = math.cos(b)
-        print(round(d, 3))
+            value = int(value)
+
+        result = math.cos(value)
+        print(round(result, 3))
 
     # tangent
-    elif enit[0:5] == "tan: ":
-        a = enit.find("tan: ")
-        b = enit[a + 5:]
-        if "." in enit:
-            b = float(b)
+    elif "tan:" in CommandLine:
+        function = CommandLine.find(":")
+        value = CommandLine[function + 1:]
+
+        # Checks if there is a decimal
+        if "." in CommandLine:
+            value = float(value)
+
         else:
-            b = int(b)
-        d = math.tan(b)
-        print(round(d, 3))
+            value = int(value)
+
+        result = math.tan(value)
+        print(round(result, 3))
 
     # cmds
-    elif enit == "pulse.cmds":
+    elif "pulse.cmds" in CommandLine:
         print(cmds)
-    # non-existent command | if the input does not have an existing command then it will print the non-existent command as an error
+
+    # non-existent command | if the input does not have an existing command then it will print the non-existent
+    # command as an error
     else:
-        print('"' + enit + '"' + " is not a valid command. Type 'pulse.cmds' for a list of commands")
+        print('"', CommandLine, '"', "is not a valid command. Type 'pulse.cmds' for a list of commands")
