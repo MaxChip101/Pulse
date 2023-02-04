@@ -1,5 +1,5 @@
 # Pulse
-A Program writen in Python to be able to manage files and do http requests and do mathematical equations and store variables with a Command Line Interface. more updates in the future
+A Program writen in Python to be able to: manage files, do http requests, do mathematical equations and store variables with a Command Line Interface. more updates in the future
 
 This project uses Http funtionality and could potentially be expliotable by local/online peers. Use Wisely, You Have Been Warned!
 
@@ -25,14 +25,15 @@ First make sure you have the latest version of python install on your machine
 
 1. Download python from the Microsoft store
 
-2. Open https://bootstrap.pypa.io/get-pip.py and open the file's directory in the CMD
+2. Open https://bootstrap.pypa.io/get-pip.py and save the file's directory
 
-3. Paste "python get-pip.py" and press enter
+3. Open CMD and type python
 
-4. After that is complete run "pip install requests"
+4. Type "python get-pip.py" and press enter
 
-5. run the pulse.py file any way you so choose
+5. After that is complete run "pip install requests"
 
+6. Run the pulse.py file any way you so choose
 
 Written by MaxChip101 and Talleeenos69, 2022 - 2023
 
