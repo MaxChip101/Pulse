@@ -34,7 +34,7 @@ First make sure you have the latest version of python install on your machine
 5. run the pulseV1.py file any way you so choose
 
 
-Written by MaxChip101 and Talleeenos69, 2022
+Written by MaxChip101 and Talleeenos69, 2022 - 2023
 
     **************                   #@#                              ..............
     ***@@@@@@@@@@                    #@#                               .............
