@@ -1,6 +1,6 @@
-########################################
+# -------------------------
 # PULSE
-########################################
+# -------------------------
 
 # Libraries
 import os
@@ -11,27 +11,29 @@ import math
 import requests  # terminal > pip install requests
 
 # Variable table
-var = []
+Var_Table = []
 
-# Define System-Wide variables ---------------------------------------
+# Define System-Wide Variables ---------------------------------------
+Command_Line_Text = ":"
+Command_Choice_Text = "C>"
+Command_Write_Text = "W>"
 
 clearScreenTimes = 200
-
 
 # Define Functions ---------------------------------------------------
 
 # Vowel Counter
-def getStringInfo(userin):
+def getStringInfo(userIn):
     vowelCount = 0
     consonants = 0
-    spaceCount = userin.count(" ")
-    vowelCount += userin.count("a")
-    vowelCount += userin.count("e")
-    vowelCount += userin.count("i")
-    vowelCount += userin.count("o")
-    vowelCount += userin.count("u")
-    consonants = int(len(userin) - vowelCount)
-    print("Length : " + str(len(userin)) + " | Vowels: " + str(vowelCount) + " | Consonants: " + str(
+    spaceCount = userIn.count(" ")
+    vowelCount += userIn.count("a")
+    vowelCount += userIn.count("e")
+    vowelCount += userIn.count("i")
+    vowelCount += userIn.count("o")
+    vowelCount += userIn.count("u")
+    consonants = int(len(userIn) - vowelCount)
+    print("Length : " + str(len(userIn)) + " | Vowels: " + str(vowelCount) + " | Consonants: " + str(
         consonants) + " | Spaces : " + str(spaceCount) + " | Words : " + str(spaceCount + 2))
 
 
@@ -42,96 +44,62 @@ def clearScreen(clearScreenNum):
         print("\n")
 
 
-# experiments | experiments that are being tested --------------------
-def exp1():
-    pass
-
-
-def exp2():
-    pass
-
-
-def exp3():
-    pass
-
-
-def exp4():
-    pass
-
-
-def exp5():
-    pass
-
-
 # commands | list of commands
 cmds = (
-    "print: (txt)                                             | Prints a text to the Terminal"
+    "print: (txt) ------------------------------------------- | Prints a text to the Terminal"
     "\n"
-    "print-var: (var num)                                     | Prints a variable in the variable list"
+    "print-var: (var num) ----------------------------------- | Prints a variable in the variable list"
     "\n"
-    "pulse.logo                                               | Prints the logo for Pulse in the Terminal"
+    "pulse.logo --------------------------------------------- | Prints the logo for Pulse in the Terminal"
     "\n"
-    "pulse.terminate                                          | Kills the program"
+    "pulse.terminate ---------------------------------------- | Kills the program"
     "\n"
-    "pause: (seconds)                                         | Sets a timer for X amount of seconds"
+    "pause: (seconds) --------------------------------------- | Sets a timer for X amount of seconds"
     "\n"
-    "pulse.time                                               | Prints the time into the Terminal"
+    "pulse.time --------------------------------------------- | Prints the time into the Terminal"
     "\n"
-    "pulse                                                    | Pulse by MaxChip & Talleeenos69 2022 - 2023"
+    "pulse -------------------------------------------------- | Pulse by MaxChip & Talleeenos69 2022 - 2023"
     "\n"
-    "X + Y                                                    | Adds 2 numbers together"
+    "X + Y -------------------------------------------------- | Adds 2 numbers together"
     "\n"
-    "X - Y                                                    | Subtracts 2 numbers from each other"
+    "X - Y -------------------------------------------------- | Subtracts 2 numbers from each other"
     "\n"
-    "X * Y                                                    | Multiplies 2 numbers together"
+    "X * Y -------------------------------------------------- | Multiplies 2 numbers together"
     "\n"
-    "X / Y                                                    | Divides 2 numbers from each other"
+    "X / Y -------------------------------------------------- | Divides 2 numbers from each other"
     "\n"
-    "X % Y                                                    | Mods 2 numbers from each other"
+    "X % Y -------------------------------------------------- | Mods 2 numbers from each other"
     "\n"
-    "X ^ Y                                                    | Puts a number to the exponent to another number"
+    "X ^ Y -------------------------------------------------- | Puts a number to the exponent to another number"
     "\n"
-    "sqrt: (num)                                              | Puts the number you put in to the square root"
+    "sqrt: (num) -------------------------------------------- | Puts the number you put in to the square root"
     "\n"
-    "pi: (num)                                                | Puts the number you put in to pi"
+    "pi: (num) ---------------------------------------------- | Puts the number you put in to pi"
     "\n"
-    "sin: (num)                                               | Puts the number you put in to sine"
+    "sin: (num) --------------------------------------------- | Puts the number you put in to sine"
     "\n"
-    "cos: (num)                                               | Puts the number you put in to cosine"
+    "cos: (num) --------------------------------------------- | Puts the number you put in to cosine"
     "\n"
-    "tan: (num)                                               | Puts the number you put in to tangent"
+    "tan: (num) --------------------------------------------- | Puts the number you put in to tangent"
     "\n"
-    "(var type (str, int, float)) (var num) = (var val)       | Creates a variable number to a specific value"
+    "(var type (str, int, float)) (var num) = (var val) ----- | Creates a variable number to a specific value"
     "\n"
-    "(var num) = (var val)                                    | Sets a variable number to a specific value"
+    "(var num) = (var val) ---------------------------------- | Sets a variable number to a specific value"
     "\n"
-    "file: (file.filetype)                                    | Creates / writes, deletes, reads a file"
+    "file: (file.filetype) ---------------------------------- | Creates / writes, deletes, reads a file"
     "\n"
-    "pulse.variables                                          | Prints all variables in a list"
+    "vars --------------------------------------------------- | Prints all variables in a list"
     "\n"
-    "pulse.experiments                                        | Shows a list of experiments that are available"
+    "pulse.code --------------------------------------------- | Prints the code of pulse into the terminal"
     "\n"
-    "pulse.code                                               | Prints the code of pulse into the terminal"
+    "http: (https://web.domain/) ---------------------------- | Does a lot of things with website html and requests"
     "\n"
-    "http: (https://web.domain/)                              | Does a lot of things with website html and requests"
+    "string-info: (string) ---------------------------------- | Counts the amount of vowels in a string"
     "\n"
-    "strinfo                                                  | Counts the amount of vowels in a string"
+    "pulse.clear -------------------------------------------- | Clears the screen"
     "\n"
-    "pulse.clear                                              | Clears the screen"
+    "pulse.settings ----------------------------------------- | Shows the settings"
 )
-# experiments | list of experiments
-experiments = (
-    "pulse.experiment1 | Experiment1 has no value"
-    "\n"
-    "pulse.experiment2 | Experiment2 has no value"
-    "\n"
-    "pulse.experiment3 | Experiment3 has no value"
-    "\n"
-    "pulse.experiment4 | Experiment4 has no value"
-    "\n"
-    "pulse.experiment5 | Experiment5 has no value"
-)
-
 
 # logo
 def Logo():
@@ -177,8 +145,13 @@ Type "pulse.cmds" for a list of commands.
 
 while True:
 
+    # In loop variables
+    Command_Line_Text_Fix = " " + Command_Line_Text + " "
+    Command_Choice_Text_Fix = " " + Command_Choice_Text + " "
+    Command_Write_Text_Fix = " " + Command_Write_Text + " "
+
     # input
-    CommandLine = input(" : ")
+    CommandLine = input(Command_Line_Text_Fix)
 
     # Commands
 
@@ -208,28 +181,28 @@ while True:
 
         if "int" in variable:
             value = int(value)
-            var.append(value)
+            Var_Table.append(value)
 
         elif "float" in variable:
             value = float(value)
-            var.append(value)
+            Var_Table.append(value)
 
         elif "str" in variable:
             value = str(value)
-            var.append(value)
+            Var_Table.append(value)
 
         else:
-            var[int(variable)] = value
+            Var_Table[int(variable)] = value
 
     # variables
-    elif "pulse.variables" in CommandLine:
-        print(var)
+    elif "vars" in CommandLine:
+        print(Var_Table)
 
     # print variable
     elif "print-var:" in CommandLine:
         function = CommandLine.find(":")
         variable = CommandLine[function + 1:]
-        print(var[int(variable)])
+        print(Var_Table[int(variable)])
 
     # print
     elif "print:" in CommandLine:
@@ -240,29 +213,40 @@ while True:
     elif "pulse.time" in CommandLine:
         print(time.localtime())
 
-    # experiments
-    elif "pulse.experiments" in CommandLine:
-        print(experiments)
+    # settings | Allows user to change settings in pulse
+    elif "pulse.settings" in CommandLine:
+        print("Command_Text | Clear_Screen_Lines", "\n")
+        CommandChoice = input(Command_Choice_Text_Fix)
 
-    # experiment1
-    elif "pulse.experiment1" in CommandLine:
-        exp1()
+        # Command texts settings
+        if "command_text" in CommandChoice.lower():
+            print("Command_Line | Command_Choice | Command_Write ", "\n")
 
-    # experiment2
-    elif "pulse.experiment2" in CommandLine:
-        exp2()
+            CommandChoice = input(Command_Choice_Text_Fix)
 
-    # experiment3
-    elif "pulse.experiment3" in CommandLine:
-        exp3()
+            if "command_line" in CommandChoice.lower():
+                print("Input the text of the command line:", "\n")
 
-    # experiment4
-    elif "pulse.experiment4" in CommandLine:
-        exp4()
+                CommandWrite = input(Command_Write_Text_Fix)
+                Command_Line_Text = CommandWrite
 
-    # experiment5
-    elif "pulse.experiment5" in CommandLine:
-        exp5()
+            elif "command_choice" in CommandChoice.lower():
+                print("Input the text of the choice line:", "\n")
+
+                CommandWrite = input(Command_Write_Text_Fix)
+                Command_Choice_Text = CommandWrite
+
+            elif "command_write" in CommandChoice.lower():
+                print("Input the text of the write line:", "\n")
+
+                CommandWrite = input(Command_Write_Text_Fix)
+                Command_Write_Text = CommandWrite
+
+        elif "clear_screen_lines" in CommandChoice.lower():
+            print("Input amount of lines when the screen gets cleared:", "\n")
+
+            CommandWrite = input(Command_Write_Text_Fix)
+            clearScreenTimes = CommandWrite
 
     # file editor
     elif "file:" in CommandLine:
@@ -270,7 +254,7 @@ while True:
 
         function = CommandLine.find(":")
         file = CommandLine[function + 1:]
-        CommandChoice = input(" C> ")
+        CommandChoice = input(Command_Choice_Text_Fix)
 
         # Remove files
         if "erase" in CommandChoice.lower():
@@ -279,7 +263,7 @@ while True:
         # Write to Files
         elif "write" in CommandChoice.lower():
             with open(file, "w") as f:
-                CommandWrite = input(" W> ")
+                CommandWrite = input(Command_Write_Text_Fix)
                 f.write(CommandWrite + "\n")
 
         # Read Files
@@ -295,7 +279,7 @@ while True:
         function = CommandLine.find(":")
         website = CommandLine[function + 1:]
         web_data = requests.get(website)
-        CommandChoice = input(" C> ")
+        CommandChoice = input(Command_Choice_Text_Fix)
 
         # gets website html data
         if "html" in CommandChoice.lower():
@@ -319,7 +303,7 @@ while True:
         function = CommandLine.find(":")
         time.sleep(int(CommandLine[function + 1:]))
 
-    # vowel counter    
+    # vowel counter
     elif "string-info:" in CommandLine:
         function = CommandLine.find(":")
         string = CommandLine[function + 1:]
@@ -464,7 +448,7 @@ while True:
         else:
             value = int(value)
 
-        result = math.pi(value)
+        result = math.pi * value
         print(round(result, 3))
 
     # sine
