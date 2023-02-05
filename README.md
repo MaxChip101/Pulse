@@ -9,6 +9,14 @@ NOTICE: This project's code and releases are strictly hosted on this github repo
 
 First make sure you have the latest version of python install on your machine
 
+**Terminal File**
+
+**Windows**----------------------------------------------------------------------
+      Run the Pulse.bat
+
+
+**Python File**
+
 **Linux**------------------------------------------------------------------------
 
 1. 
