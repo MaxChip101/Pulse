@@ -12,7 +12,7 @@ First make sure you have the latest version of python install on your machine
 **Terminal File**
 
 **Windows**----------------------------------------------------------------------
-      Run the Pulse.bat
+      **1.** Run the Pulse.bat
 
 
 **Python File**
