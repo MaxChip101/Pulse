@@ -1,4 +1,4 @@
--2022
+--2022--
 
 1.0.0 - Released!!
 
@@ -12,7 +12,7 @@
 
 1.0.5 - Added a system to count vowels from a string. Use by inputting a string after "pulse.countVowels"
 
---2023
+--2023--
 
 2/4/2023: 1.2.0 - Added settings to change pulse variables and Changed how variables work and made some quality of life features
 
