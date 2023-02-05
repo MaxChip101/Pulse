@@ -8,3 +8,4 @@
 
 --2023
 2/4/2023: 1.6 - Changed how variables work and made some quality of life features
+2/4/2023: 1.6.1 - Added settings to change pulse variables and changed some things
