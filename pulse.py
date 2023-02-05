@@ -311,7 +311,7 @@ while True:
 
     # clear screen
     elif "pulse.clear" in CommandLine:
-        clearScreen(clearScreenTimes)
+        clearScreen(int(clearScreenTimes))
 
     # addition
     elif "+" in CommandLine:
