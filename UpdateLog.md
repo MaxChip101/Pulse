@@ -14,6 +14,6 @@
 
 --2023--
 
-2/4/2023: 1.2.0 - Added settings to change pulse variables and Changed how variables work and made some quality of life features
+2/4/2023: 1.1.0 - Added settings to change pulse variables and Changed how variables work and made some quality of life features
 
-3/4/2023: 1.2.1 - Added BAT runnable for pulse and bug fixes
+3/4/2023: 1.1.1 - Added BAT runnable for pulse and bug fixes
