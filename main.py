@@ -169,7 +169,7 @@ while True:
 
     # code
     elif "pulse.code" in CommandLine:
-        with open("pulse.py", "r") as f:
+        with open("main.py", "r") as f:
             pulse_code = f.read()
             print(pulse_code)
 
