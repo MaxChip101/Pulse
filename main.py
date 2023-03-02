@@ -19,7 +19,7 @@ Command_Line_Text = ":"
 Command_Choice_Text = "C>"
 Command_Write_Text = "W>"
 
-clearScreenTimes = 200
+os_name = platform.system()
 
 # Define Functions ---------------------------------------------------
 
@@ -39,10 +39,12 @@ def getStringInfo(userIn):
 
 
 # clear screen
-def clearScreen(clearScreenNum):
-    while clearScreenNum > 1:
-        clearScreenNum -= 1
-        print("\n")
+def clearScreen():
+    if os_name == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear")
+
 
 
 # commands | list of commands
@@ -312,7 +314,7 @@ while True:
 
     # clear screen
     elif "pulse.clear" in CommandLine:
-        clearScreen(int(clearScreenTimes))
+        clearScreen()
 
     # addition
     elif "+" in CommandLine:
@@ -503,7 +505,6 @@ while True:
     
     # Check Operating System
     elif "osinfo" in CommandLine:
-        os_name = platform.system()
         print(os_name)
 
     # non-existent command | if the input does not have an existing command then it will print the non-existent
