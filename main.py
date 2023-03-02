@@ -102,6 +102,8 @@ cmds = (
     "pulse.clear -------------------------------------------- | Clears the screen"
     "\n"
     "pulse.settings ----------------------------------------- | Shows the settings"
+    "\n"
+    "pulse.os ----------------------------------------------- | Shows what OS you're currently running"
 )
 
 # logo
@@ -504,7 +506,7 @@ while True:
         print(cmds)
     
     # Check Operating System
-    elif "osinfo" in CommandLine:
+    elif "pulse.os" in CommandLine:
         print(os_name)
 
     # non-existent command | if the input does not have an existing command then it will print the non-existent
