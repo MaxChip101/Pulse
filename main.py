@@ -6,6 +6,7 @@
 import os
 import time
 import math
+import platform
 
 # External Libraries
 import requests  # terminal > pip install requests
@@ -499,6 +500,11 @@ while True:
     # cmds
     elif "pulse.cmds" in CommandLine:
         print(cmds)
+    
+    # Check Operating System
+    elif "osinfo" in CommandLine:
+        os_name = platform.system()
+        print(os_name)
 
     # non-existent command | if the input does not have an existing command then it will print the non-existent
     # command as an error
